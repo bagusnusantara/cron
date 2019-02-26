@@ -37,9 +37,10 @@ class SendBirthdayEmail extends Command
      */
     public function handle()
     {
-      $users = User::whereMonth('birthdate', '=', date('m'))->whereDay('birthdate', '=', date('d'))->get();
+      // $users = User::whereMonth('birthdate', '=', date('m'))->whereDay('birthdate', '=', date('d'))->get();
+        $users = User::all();
 
-  foreach($users as $user) {
+        foreach($users as $user) {
 
       // Create a unique 8 character promo code for user
       $new_promo_code = new PromoCode([
